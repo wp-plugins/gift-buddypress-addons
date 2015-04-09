@@ -1,0 +1,50 @@
+*{margin:0;padding:0;}
+.gift-div{width:80%;float:left;font-family:Arial, Helvetica, sans-serif;}
+.gift-div h2{width:100%;float:left;color:#b35000;font-size:30px;}
+.gift-div ul{width:100%;float:left;list-style-type:none; margin:0; padding:0}
+.gift-div ul li{width:33%;float:left;}
+.gift-div ul li .top_0{width:88%;float:left;text-align:center;border:1px solid #ccc; }
+.gift-div ul li .top_1{width:100%;float:left;text-align:center;position:relative;border:none;}
+.gift-div ul li .hover{display:none;}
+.gift-div ul li .top_1:hover .hover{display:block;position:absolute;height:100%;width:100%;background:#000;opacity:0.9;text-align:center;top:0;FLOAT:left;}
+.gift-div ul li .top_1:hover samp {height:100%;display:inline-block;}
+.gift-div ul li .top_1:hover *{vertical-align:middle;}
+.gift-div ul li .top_1 aside{display:inline-block;width:90%;}
+.gift-div ul li a{text-decoration:none;}
+.gift-div p { font-size:12px;}
+
+.gift-div ul li .img_1{width:100%;float:left;height:150px;}
+.gift-div ul li .img_1 em{height:100%;display:inline-block;}
+.gift-div ul li .img_1 *{vertical-align:middle;}
+.gift-div ul li h3{width:100%;float:left;color:#b35000;font-size:20px;padding:10px 0;margin:0;background:#f5f5f5;}
+.gift-div ul li p{width:100%;color:#fff;font-size:14px;padding:10px 0;margin:0;display:inline-block;}
+.gift-div ul li b{width:100%;float:left;color:#000;font-size:14px;padding:12px 0;background:#eeeded;}
+.gift-div ul li .Read{color:#b35000;font-size:14px;padding:5px 10px;text-decoration:none;border:1px solid #b35000;margin-top:10px;display:inline-block;}
+.gift-div ul li .Read:hover{color:#fff;border:1px solid #fff;}
+.gift-div ul li .more-link{color:#b35000;font-size:14px;padding:5px 10px;text-decoration:none;border:1px solid #b35000;margin-top:10px;display:inline-block;}
+.gift-div ul li .more-link:hover{color:#fff;border:1px solid #fff;}
+.gift-div ul li label{color:#ca3c08;font-size:12px; font-weight:700;}
+
+.user-list select{ margin-top: 130px;}
+.form_submit {  
+	background-color: #b35000;
+	color: #fff;
+	font-weight: bold;
+	padding: 10px;
+	margin-top: 14px;
+	width: 110px;
+}
+input[type="radio"] {
+    -webkit-appearance: checkbox;
+    -moz-appearance: checkbox;
+    -ms-appearance: checkbox;     /* not currently supported */
+    -o-appearance: checkbox;      /* not currently supported */
+}
+#error-message { 
+    
+    padding: 5px;
+    border: 1px solid red;
+    color: red;
+    display: none;
+    margin-bottom: 10px;
+}
