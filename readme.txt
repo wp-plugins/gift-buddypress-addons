@@ -37,8 +37,9 @@ Yes? Just ask me.
 
 == Screenshots ==
 
-1.screenshot-1 is basic GUI for send gifts where user will be able to view all gifts. 
-2. screenshot-2 is wordpress admin side gift management screen.
+1. Screen for send gifts where user will be able to view all gifts. 
+2. Wordpress admin side gift management screen.
+3. Screen for recieved gifts.
 
 == Changelog ==
 = 1.0 =
