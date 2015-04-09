@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== Gift Buddypress Addons ===
 Contributors: Aiyaz Khorajia
 Donate link: http://ayaz.co.nf
 Tags: Buddypress, Gifts, Gift, Buddypress-Gifts, Addons, buddypress-gift, Gift management, Send Gifts, Recieve Gifts, Point, Gift points
