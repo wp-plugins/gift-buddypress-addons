@@ -53,7 +53,7 @@ if(!class_exists('Gift_Buddypress_Template'))
 			$Gift_Post_Texonomy_Template = new Gift_Post_Texonomy_Template();
 			
 			add_action( 'init',array( $this,'check_bp_loaded'));
-			
+			add_action('init', array( $this, 'do_output_buffer'));
 			
 			add_action( 'bp_setup_nav',array( $this, 'profile_tab_gifts') );
 		
@@ -188,6 +188,9 @@ if(!class_exists('Gift_Buddypress_Template'))
 			bp_core_load_template( apply_filters( 'bp_core_template_plugin', 'members/single/plugins' ) );
 		}
 		
+		public function do_output_buffer() {
+			ob_start();
+		}
 		
 		public function send_gifts_content() { 
 			global $bp;
@@ -205,6 +208,12 @@ if(!class_exists('Gift_Buddypress_Template'))
 				//$userid = get_current_user_id();
 				//bp_core_add_notification('100', (int)$bp->loggedin_user->id, 'activity', 'activity_viewed');
 				//bp_core_add_notification( '100', 1, 'logbooks', 'new_dive' );
+				
+				if (function_exists('mycred_add')) {
+					mycred_add( 'birthday_present', $sender, 10, 'Sent Gift %plural%!', date( 'y' ) );
+					header('Location: '.$_SERVER['REQUEST_URI']);
+				}
+				
 				
 			} ?>
 
