@@ -176,6 +176,12 @@ if(!class_exists('Gift_Buddypress_Template'))
 				); 
 		}
 		
+		
+		public function do_output_buffer() {
+			ob_start();
+		}
+		
+		
 		public function send_gift_posts(){	
 	
 			add_action( 'bp_template_content',array( $this,'send_gifts_content') );
@@ -188,9 +194,6 @@ if(!class_exists('Gift_Buddypress_Template'))
 			bp_core_load_template( apply_filters( 'bp_core_template_plugin', 'members/single/plugins' ) );
 		}
 		
-		public function do_output_buffer() {
-			ob_start();
-		}
 		
 		public function send_gifts_content() { 
 			global $bp;
@@ -202,18 +205,18 @@ if(!class_exists('Gift_Buddypress_Template'))
 				$post_id = $_POST['post_id'];
 				$sender = $_POST['sender'];
 				$reciever = $_POST['reciever'];
-				
+				$allpoints = $_POST['points'];
+				$points = $allpoints[$post_id]; 
+				//echo $points; die;
 				update_post_meta( $post_id, 'sender_id', $sender );
 				update_post_meta( $post_id, 'reciever_id', $reciever );
 				//$userid = get_current_user_id();
 				//bp_core_add_notification('100', (int)$bp->loggedin_user->id, 'activity', 'activity_viewed');
-				//bp_core_add_notification( '100', 1, 'logbooks', 'new_dive' );
-				
+				bp_core_add_notification( '100', 1, 'logbooks', 'new_dive' );
 				if (function_exists('mycred_add')) {
-					mycred_add( 'birthday_present', $sender, 10, 'Sent Gift %plural%!', date( 'y' ) );
+					mycred_add( 'birthday_present', $sender, $points, 'Sent Gift %plural%!', date( 'y' ) );
 					header('Location: '.$_SERVER['REQUEST_URI']);
 				}
-				
 				
 			} ?>
 
@@ -235,6 +238,19 @@ if(!class_exists('Gift_Buddypress_Template'))
 	<?php
 		}
 		
+		
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		public function received_gifts_content() {
 	
 			$args1 = array (
@@ -245,7 +261,7 @@ if(!class_exists('Gift_Buddypress_Template'))
 				'meta_query'             => array(
 					array(
 						'key'       => 'reciever_id',
-						'value'     => get_current_user_id(),
+						'value'     => '2',
 						'compare'   => '=',
 					),
 				),
@@ -311,7 +327,7 @@ if(!class_exists('Gift_Buddypress_Template'))
 					$html_content .= '</aside></span></div>';
 					$html_content .= '<b>Price : $'.$meta[0].' </b>';
 					$html_content .= '<input type="radio"  id="post_id" name="post_id" value="'.get_the_ID().'" required /><label> BUY</label></div></li>';
-					
+					$html_content .= '<input type="hidden" name="points['.get_the_ID().']" value='.$meta[0].'>';
 				}
 				$html_content .= '</ul></div>';
 			} else {
